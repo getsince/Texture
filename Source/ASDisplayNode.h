@@ -286,6 +286,8 @@ ASDK_EXTERN NSInteger const ASDefaultDrawingPriority;
  */
 - (void)removeInterfaceStateDelegate:(id <ASInterfaceStateDelegate>)interfaceStateDelegate;
 
+- (void)recursivelySetInterfaceState:(ASInterfaceState)newInterfaceState;
+
 /**
  * @abstract Class property that allows to set a block that can be called on non-fatal errors. This
  * property can be useful for cases when Async Display Kit can recover from an abnormal behavior, but

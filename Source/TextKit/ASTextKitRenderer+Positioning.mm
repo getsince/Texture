@@ -227,7 +227,12 @@ static const CGFloat ASTextKitRendererTextCapHeightPadding = 1.3;
 
   CGRect glyphRect = [layoutManager boundingRectForGlyphRange:NSMakeRange(glyphIndex, 1)
                                                            inTextContainer:textContainer];
-
+  
+  // boundingRectForGlyphRange returns witdth=10_000_000 for \n chars, this is a workaround
+  if (glyphRect.size.width > 9000000) {
+    glyphRect.size.width = 0;
+  }
+  
   // If it is a NSTextAttachment, we don't have the matched glyph and use width of glyphRect instead of advance.
   CGFloat advance = (glyph == kCGFontIndexInvalid) ? glyphRect.size.width : CTFontGetAdvancesForGlyphs(font, kCTFontOrientationHorizontal, &glyph, NULL, 1);
 

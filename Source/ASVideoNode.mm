@@ -168,6 +168,7 @@ static NSString * const kRate = @"rate";
     [_player replaceCurrentItemWithPlayerItem:playerItem];
   } else {
     self.player = [AVPlayer playerWithPlayerItem:playerItem];
+    self.player.automaticallyWaitsToMinimizeStalling = false;
   }
 
   if (_delegateFlags.delegateVideoNodeDidSetCurrentItem) {

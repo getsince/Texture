@@ -411,6 +411,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated ASDISPLAYNODE_DEPRECATED_MSG("Use ASCollectionNode method instead.");
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+
 @end
 
 ASDISPLAYNODE_DEPRECATED_MSG("Renamed to ASCollectionDataSource.")
